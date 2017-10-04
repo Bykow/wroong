@@ -13,12 +13,9 @@ import java.io.PrintWriter;
  * Author(s) : Antoine Friant
  * Date : 29.09.17
  */
-@WebServlet(name = "RootServlet", urlPatterns = {"/"})
+@WebServlet(name = "RootServlet", urlPatterns = {"/index"})
 public class RootServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        try (PrintWriter out = response.getWriter()) {
-            out.println("<html>RootServlet !</html>");
-        }
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
