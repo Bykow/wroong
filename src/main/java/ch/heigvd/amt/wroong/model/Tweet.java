@@ -8,6 +8,27 @@ import java.util.Date;
  * Date : 29.09.17
  */
 public class Tweet {
-    private Date date;
     private String content;
+    private Date date;
+
+    public Tweet(String content, Date date) {
+        this.content = content;
+        this.date = date;
+    }
+
+    public String getContent() {
+        return content;
+    }
+
+    public void setContent(String content) {
+        this.content = content;
+    }
+
+    public Date getDate() {
+        return date;
+    }
+
+    public void setDate(Date date) {
+        this.date = date;
+    }
 }

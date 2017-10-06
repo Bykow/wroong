@@ -6,19 +6,13 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@include file="includes/header.jsp"%>
-<!-- Page Content -->
-<div id="page-wrapper">
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-lg-12">
-                <h1 class="page-header">Generate tweets</h1>
-            </div>
-            <!-- /.col-lg-12 -->
-        </div>
-        <!-- /.row -->
-    </div>
-    <!-- /.container-fluid -->
-</div>
-<!-- /#page-wrapper -->
+
+<h1 class="page-header">Generate tweets</h1>
+
+<form action="./configsuccess" method="post">
+    Number of tweets :<br>
+    <input type="number" name="nbOfGeneratedTweets" min="1" step="1" pattern="\d+"><br>
+    <input type="submit" value="Generate random">
+</form>
 
 <%@include file="includes/footer.jsp"%>

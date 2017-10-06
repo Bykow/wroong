@@ -16,9 +16,10 @@ import java.io.IOException;
 public class ConfigSuccessServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-    }
+        // TODO get int from config form
+        int nbOfGeneratedTweets = Integer.parseInt(request.getParameter("nbOfGeneratedTweets"));
+        request.setAttribute("nbOfGeneratedTweets", nbOfGeneratedTweets);
 
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         request.getRequestDispatcher("/WEB-INF/pages/configsuccess.jsp").forward(request, response);
     }
 }

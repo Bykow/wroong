@@ -52,7 +52,7 @@
             <div class="sidebar-nav navbar-collapse">
                 <ul class="nav" id="side-menu">
                     <li>
-                        <a href="./home"><i class="fa fa-dashboard fa-fw"></i> Accueil</a>
+                        <a href="./home"><i class="fa fa-dashboard fa-fw"></i> Home</a>
                     </li>
                     <li>
                         <a href="./list"><i class="fa fa-table fa-fw"></i> Tweets</a>
@@ -61,10 +61,10 @@
                         <a href="#"><i class="fa fa-wrench fa-fw"></i> Configuration<span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
                             <li>
-                                <a href="./add">Ajouter un tweet</a>
+                                <a href="./add">Add a tweet</a>
                             </li>
                             <li>
-                                <a href="./config">Générer des tweets</a>
+                                <a href="./config">Generate tweets</a>
                             </li>
                         </ul>
                         <!-- /.nav-second-level -->
@@ -75,3 +75,8 @@
         </div>
         <!-- /.navbar-static-side -->
     </nav>
+    <!-- Page Content -->
+    <div id="page-wrapper">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-12">

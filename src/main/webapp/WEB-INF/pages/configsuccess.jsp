@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%--
   Created by IntelliJ IDEA.
   User: bertral
@@ -6,19 +7,8 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@include file="includes/header.jsp"%>
-<!-- Page Content -->
-<div id="page-wrapper">
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-lg-12">
                 <h1 class="page-header">Welcome to Wroong</h1>
-            </div>
-            <!-- /.col-lg-12 -->
-        </div>
-        <!-- /.row -->
-    </div>
-    <!-- /.container-fluid -->
-</div>
-<!-- /#page-wrapper -->
+
+<c:out value="${nbOfGeneratedTweets}"/> tweets generated.
 
 <%@include file="includes/footer.jsp"%>
