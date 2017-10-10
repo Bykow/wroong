@@ -9,6 +9,6 @@
 <%@include file="includes/header.jsp"%>
                 <h1 class="page-header">Welcome to Wroong</h1>
 
-<c:out value="${nbOfGeneratedTweets}"/> tweets generated.
+${nbOfGeneratedTweets} tweets generated.
 
 <%@include file="includes/footer.jsp"%>
