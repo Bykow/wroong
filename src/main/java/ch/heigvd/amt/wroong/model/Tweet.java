@@ -1,6 +1,7 @@
 package ch.heigvd.amt.wroong.model;
 
-import java.util.Date;
+import java.sql.Date;
+import java.sql.Timestamp;
 
 /**
  * Project : wroong
@@ -8,10 +9,12 @@ import java.util.Date;
  * Date : 29.09.17
  */
 public class Tweet {
+    private int id;
     private String content;
-    private Date date;
+    private Timestamp date;
 
-    public Tweet(String content, Date date) {
+    public Tweet(int id, String content, Timestamp date) {
+        this.id = id;
         this.content = content;
         this.date = date;
     }
@@ -24,11 +27,15 @@ public class Tweet {
         this.content = content;
     }
 
-    public Date getDate() {
+    public Timestamp getDate() {
         return date;
     }
 
-    public void setDate(Date date) {
+    public void setDate(Timestamp date) {
         this.date = date;
+    }
+
+    public int getId() {
+        return id;
     }
 }

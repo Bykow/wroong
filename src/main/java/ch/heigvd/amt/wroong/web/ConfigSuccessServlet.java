@@ -1,5 +1,8 @@
 package ch.heigvd.amt.wroong.web;
 
+import ch.heigvd.amt.wroong.service.DataManager;
+
+import javax.ejb.EJB;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -14,10 +17,12 @@ import java.io.IOException;
  */
 @WebServlet(name = "ConfigSuccessServlet", urlPatterns = {"/configsuccess"})
 public class ConfigSuccessServlet extends HttpServlet {
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    @EJB
+    private DataManager dataManager;
 
-        int nbOfGeneratedTweets = Integer.parseInt(request.getParameter("nbOfGeneratedTweets"));
-        request.setAttribute("nbOfGeneratedTweets", nbOfGeneratedTweets);
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        dataManager.populateTweets(Integer.parseInt(request.getParameter("nbOfGeneratedTweets")));
+        request.setAttribute("nbOfGeneratedTweets", request.getParameter("nbOfGeneratedTweets"));
 
         request.getRequestDispatcher("/WEB-INF/pages/configsuccess.jsp").forward(request, response);
     }
