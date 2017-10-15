@@ -65,7 +65,7 @@
                                 <a href="./add">Add a tweet</a>
                             </li>
                             <li>
-                                <a href="./config">Generate tweets</a>
+                                <a href="./config">Populate/clear database</a>
                             </li>
                         </ul>
                         <!-- /.nav-second-level -->

@@ -1,10 +1,8 @@
 <%@ page import="ch.heigvd.amt.wroong.model.Tweet" %>
 <%--
-  Created by IntelliJ IDEA.
-  User: bertral
+  User: Antoine Friant, Lawrence Stalder
   Date: 04.10.17
   Time: 14:54
-  To change this template use File | Settings | File Templates.
 --%>
 <%@include file="includes/header.jsp"%>
 

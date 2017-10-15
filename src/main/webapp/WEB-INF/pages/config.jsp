@@ -1,9 +1,7 @@
 <%--
-  Created by IntelliJ IDEA.
-  User: bertral
+  User: Antoine Friant, Lawrence Stalder
   Date: 04.10.17
   Time: 14:54
-  To change this template use File | Settings | File Templates.
 --%>
 <%@include file="includes/header.jsp" %>
 
@@ -21,9 +19,24 @@
                             <form role="form" action="./configsuccess" method="post">
                                 <div class="form-group">
                                     <label>Number of tweets to add</label>
-                                    <input type="number" name="nbOfGeneratedTweets" class="form-control" min="1" step="1" pattern="\d+">
+                                    <input type="number" name="nbOfGeneratedTweets" class="form-control" min="1"
+                                           step="1" pattern="\d+">
                                 </div>
                                 <button type="sumbit" class="btn btn-default">Submit</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    Clear database
+                </div>
+                <div class="panel-body">
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <form role="form" action="./clear" method="post">
+                                <button type="sumbit" class="btn btn-default">Delete all tweets</button>
                             </form>
                         </div>
                     </div>

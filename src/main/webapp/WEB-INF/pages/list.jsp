@@ -1,10 +1,8 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%--
-  Created by IntelliJ IDEA.
-  User: bertral
+  User: Antoine Friant, Lawrence Stalder
   Date: 04.10.17
   Time: 14:54
-  To change this template use File | Settings | File Templates.
 --%>
 <%@include file="includes/header.jsp" %>
 
@@ -31,6 +29,7 @@
                             <th>Id</th>
                             <th>Tweet content</th>
                             <th>Created on</th>
+                            <th width="110">Actions</th>
                         </tr>
                         </thead>
                         <tbody>
@@ -40,8 +39,18 @@
                                 <td>${tweet.id}</td>
                                 <td>${tweet.content}</td>
                                 <td>${tweet.date}</td>
+                                <td>
+                                    <form role="form" action="./delete" method="post" style="display:inline">
+                                        <input type="hidden" name ="id" value="${tweet.id}"/>
+                                        <button type="sumbit" class="btn btn-default">Delete</button>
+                                    </form>
+                                    <form role="form" action="./edit" method="get" style="display:inline">
+                                        <input type="hidden" name ="id" value="${tweet.id}"/>
+                                        <button type="sumbit" class="btn btn-default">Edit</button>
+                                    </form>
+                                </td>
                             </tr>
-                            <c:set var="count" value="${count + 1}" />
+                            <c:set var="count" value="${count + 1}"/>
                         </c:forEach>
                         </tbody>
                     </table>
