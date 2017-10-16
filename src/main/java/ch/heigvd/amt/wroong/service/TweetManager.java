@@ -80,6 +80,7 @@ public class TweetManager {
 
     /**
      * Supprime un tweet désigné par son id
+     *
      * @param id
      */
     public void deleteTweet(int id) {
@@ -96,7 +97,8 @@ public class TweetManager {
 
     /**
      * Modifie le contenu d'un tweet
-     * @param id id du tweet
+     *
+     * @param id      id du tweet
      * @param content nouveau contenu
      */
     public void editTweet(int id, String content) {
@@ -114,6 +116,7 @@ public class TweetManager {
 
     /**
      * Remplit la table en choisissant n tweets aléatoires écrits par Trump
+     *
      * @param n nombre de tweets à ajouter
      */
     public void populateTweets(int n) {
@@ -142,6 +145,7 @@ public class TweetManager {
 
     /**
      * Ajoute un tweet, sa date de création est la date actuelle (définit par mysql)
+     *
      * @param content contenu du tweet
      */
     public void addTweet(String content) {
@@ -157,13 +161,23 @@ public class TweetManager {
     }
 
     /**
-     * @return tous les tweets de la table
+     * tweets selon les filtres en argument
+     *
+     * @param page    1 .. n
+     * @param filter
+     * @param orderBy
+     * @return List<Tweet>
      */
-    public List<Tweet> getAllTweets() {
+    public List<Tweet> getTweets(int page, String filter, String orderBy, boolean descending) {
         List<Tweet> tweets = new ArrayList<>();
+
         try {
             Connection connection = dataSource.getConnection();
-            PreparedStatement pstmt = connection.prepareStatement("SELECT * FROM tweets;");
+            PreparedStatement pstmt = connection.prepareStatement(
+                    "SELECT * FROM tweets WHERE content LIKE ? ORDER BY " + orderBy + " " + (descending ? "DESC" : "ASC") + " LIMIT ?,?");
+            pstmt.setString(1, "%" + filter + "%");
+            pstmt.setInt(2, (page - 1) * 15);
+            pstmt.setInt(3, 15  );
             ResultSet rs = pstmt.executeQuery();
             while (rs.next()) {
                 int id = rs.getInt("id");
@@ -176,6 +190,30 @@ public class TweetManager {
             Logger.getLogger(TweetManager.class.getName()).log(Level.SEVERE, null, e);
         }
         return tweets;
+    }
+
+    /**
+     * Récupère le nombre de tweets correspondant au filtre en argument
+     *
+     * @param filter
+     * @return int
+     */
+    public int countTweets(String filter) {
+        int count = 0;
+
+        try {
+            Connection connection = dataSource.getConnection();
+            PreparedStatement pstmt = connection.prepareStatement(
+                    "SELECT COUNT(id) AS c FROM tweets WHERE content LIKE ?");
+            pstmt.setString(1, "%" + filter + "%");
+            ResultSet rs = pstmt.executeQuery();
+            rs.next();
+            count = rs.getInt("c");
+            connection.close();
+        } catch (SQLException e) {
+            Logger.getLogger(TweetManager.class.getName()).log(Level.SEVERE, null, e);
+        }
+        return count;
     }
 
     /**

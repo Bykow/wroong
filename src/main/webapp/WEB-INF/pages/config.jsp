@@ -22,7 +22,7 @@
                                     <input type="number" name="nbOfGeneratedTweets" class="form-control" min="1"
                                            step="1" pattern="\d+">
                                 </div>
-                                <button type="sumbit" class="btn btn-default">Submit</button>
+                                <button type="sumbit" class="btn btn-outline btn-primary">Submit</button>
                             </form>
                         </div>
                     </div>
@@ -36,7 +36,7 @@
                     <div class="row">
                         <div class="col-lg-6">
                             <form role="form" action="./clear" method="post">
-                                <button type="sumbit" class="btn btn-default">Delete all tweets</button>
+                                <button type="sumbit" class="btn btn-danger">Delete all tweets</button>
                             </form>
                         </div>
                     </div>

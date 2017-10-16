@@ -21,7 +21,7 @@
                                     <label>Content (max 250 characters)</label>
                                     <textarea name="content" class="form-control" rows="3" maxlength="250"></textarea>
                                 </div>
-                                <button type="sumbit" class="btn btn-default">Submit</button>
+                                <button type="sumbit" class="btn btn-outline btn-primary">Submit</button>
                             </form>
                         </div>
                     </div>
